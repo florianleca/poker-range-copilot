@@ -1,0 +1,10 @@
+{
+  "3" : ["SB", "BB", "BTN"],
+  "4" : ["SB", "BB", "CO", "BTN"],
+  "5" : ["SB", "BB", "UTG", "CO", "BTN"],
+  "6" : ["SB", "BB", "UTG", "MP", "CO", "BTN"],
+  "7" : ["SB", "BB", "UTG", "MP", "HJ", "CO", "BTN"],
+  "8" : ["SB", "BB", "UTG", "UTG+1", "MP", "HJ", "CO", "BTN"],
+  "9" : ["SB", "BB", "UTG", "UTG+1", "MP", "LJ", "HJ", "CO", "BTN"],
+  "10" : ["SB", "BB", "UTG", "UTG+1", "MP", "MP+1", "LJ", "HJ", "CO", "BTN"]
+}
