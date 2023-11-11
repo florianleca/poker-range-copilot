@@ -3,10 +3,10 @@
         <div class="card-body d-flex flex-column align-items-center">
 
             <span style="font-size: 3em" class="bi bi-person"></span>
-            <h6 class="card-title">Player {{ numPlayer }}/{{ totalPlayers }}</h6>
+            <h6 class="card-title">Player {{ numPlayer }}</h6>
             <span class="badge bg-secondary z-3">
                 {{ position }}
-                <span class="position-absolute top-50 start-100 text-warning translate-middle bi bi-circle-fill"
+                <span class="position-absolute top-25 start-100 text-warning translate-middle bi bi-circle-fill"
                       v-if="position==='BTN'"/>
             </span>
 
@@ -23,9 +23,6 @@ export default {
         numPlayer: {
             type: Number
         },
-        totalPlayers: {
-            type: Number
-        },
         position: {
             type: String
         }
@@ -37,7 +34,7 @@ export default {
 <style scoped>
 
 .card {
-    width: 8em;
+    width: 7em;
 }
 
 .bi-circle-fill {

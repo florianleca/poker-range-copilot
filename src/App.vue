@@ -1,11 +1,20 @@
 <template>
-    <div class="d-flex players">
-        <OtherPlayer v-for="player in nbPlayers-1" :key="player" :num-player="player+1" :total-players="nbPlayers"
-                     :position="positionsData[nbPlayers][(player+buttonPosition)%nbPlayers]"></OtherPlayer>
 
+    <div class="button-duo-horizontal">
+        <add-delete-player @player-added="addPlayer" @player-deleted="removePlayer"></add-delete-player>
+        <move-button @button-moved="moveButton"></move-button>
     </div>
-    <add-delete-player @player-added="addPlayer" @player-deleted="removePlayer"></add-delete-player>
-    <move-button @button-moved="moveButton"></move-button>
+    <br/>
+    <div class="d-flex players">
+        <OtherPlayer
+                v-for="player in nbPlayers-1"
+                :key="player"
+                :num-player="player+1"
+                :position="positionsData[nbPlayers][(player+buttonPosition)%nbPlayers]">
+
+        </OtherPlayer>
+    </div>
+
 </template>
 
 <script>
@@ -43,7 +52,7 @@ export default {
             this.buttonPosition = (this.buttonPosition - incr) % this.nbPlayers;
             console.log(this.buttonPosition)
             if (this.buttonPosition === -1) {
-                this.buttonPosition = this.nbPlayers-1;
+                this.buttonPosition = this.nbPlayers - 1;
             }
         }
     },
@@ -51,5 +60,12 @@ export default {
 </script>
 
 <style>
+.players {
+    width: 70em;
+}
 
+.button-duo-horizontal {
+    /*width: 70em;*/
+    margin-bottom: 1em;
+}
 </style>

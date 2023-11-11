@@ -1,8 +1,8 @@
 <template>
-    <div class="btn-group-vertical" role="group">
-        <button type="button" @click="addPlayer" class="btn btn-outline-secondary"><span class="bi bi-person-plus"> Add Player</span>
-        </button>
+    <div class="btn-group" role="group">
         <button type="button" @click="removePlayer" class="btn btn-outline-secondary"><span class="bi bi-person-dash"> Remove Player</span>
+        </button>
+        <button type="button" @click="addPlayer" class="btn btn-outline-secondary"><span class="bi bi-person-plus"> Add Player</span>
         </button>
     </div>
 </template>
@@ -22,8 +22,11 @@ export default {
 </script>
 
 <style scoped>
-.btn-group-vertical {
+.btn {
     width: 10em;
+}
+.btn-group {
+    margin-right: 2em;
 }
 
 </style>

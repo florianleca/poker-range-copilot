@@ -21,5 +21,10 @@ export default {
 </script>
 
 <style scoped>
-
+.btn {
+    width: 15em;
+}
+.btn-group {
+    margin-right: 2em;
+}
 </style>
