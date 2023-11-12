@@ -17,6 +17,7 @@
         <main-player
                 :position="positionsData[nbPlayers][(buttonPosition)%nbPlayers]"
                 :username="username"/>
+        <cards/>
     </div>
 
 </template>
@@ -26,10 +27,12 @@ import OtherPlayer from "@/components/OtherPlayer.vue";
 import AddDeletePlayer from "@/components/AddDeletePlayer.vue";
 import MoveButton from "@/components/MoveButton.vue";
 import MainPlayer from "@/components/MainPlayer.vue";
+import Cards from "@/components/Cards.vue";
 
 export default {
     name: 'App',
     components: {
+        Cards,
         MainPlayer,
         MoveButton,
         AddDeletePlayer,
