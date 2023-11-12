@@ -1,5 +1,5 @@
 <template>
-    <div class="card">
+    <div class="card m-1">
         <div class="card-body d-flex flex-column align-items-center">
 
             <span class="profile-pic bi bi-person-circle"></span>

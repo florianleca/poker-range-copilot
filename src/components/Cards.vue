@@ -5,7 +5,7 @@
                 :key="card.name"
                 type="button"
                 @click="chooseCard(card)"
-                class="btn btn-outline-dark position-relative mx-1">
+                class="btn btn-outline-dark position-relative m-1">
             {{ card.name }}
             <span class="position-absolute top-0 start-100 text-danger h2 translate-middle bi bi-check-all z-3"
                   v-if="card.timesChosen===2"/>
