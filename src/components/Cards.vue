@@ -1,12 +1,16 @@
 <template>
-    <div class="d-flex">
+    <div class="btn-group-lg" role="group">
         <button v-for="card in cards"
-                v-bind:class="{active: card.isActive, disabled: nbChosenCards===2 && !card.isActive}"
+                v-bind:class="{active: card.timesChosen>0, disabled: nbChosenCards===2 && card.timesChosen===0}"
                 :key="card.name"
                 type="button"
                 @click="chooseCard(card)"
-                class="btn card btn-outline-dark">
+                class="btn btn-outline-dark position-relative mx-1">
             {{ card.name }}
+            <span class="position-absolute top-0 start-100 text-danger h2 translate-middle bi bi-check-all z-3"
+                  v-if="card.timesChosen===2"/>
+            <span class="position-absolute top-0 start-100 text-danger h2 translate-middle bi bi-check z-3"
+                  v-if="card.timesChosen===1"/>
         </button>
     </div>
 </template>
@@ -21,55 +25,55 @@ export default {
             cards: [
                 {
                     name: "2",
-                    isActive: false
+                    timesChosen: 0
                 },
                 {
                     name: "3",
-                    isActive: false
+                    timesChosen: 0
                 },
                 {
                     name: "4",
-                    isActive: false
+                    timesChosen: 0
                 },
                 {
                     name: "5",
-                    isActive: false
+                    timesChosen: 0
                 },
                 {
                     name: "6",
-                    isActive: false
+                    timesChosen: 0
                 },
                 {
                     name: "7",
-                    isActive: false
+                    timesChosen: 0
                 },
                 {
                     name: "8",
-                    isActive: false
+                    timesChosen: 0
                 },
                 {
                     name: "9",
-                    isActive: false
+                    timesChosen: 0
                 },
                 {
                     name: "T",
-                    isActive: false
+                    timesChosen: 0
                 },
                 {
                     name: "J",
-                    isActive: false
+                    timesChosen: 0
                 },
                 {
                     name: "Q",
-                    isActive: false
+                    timesChosen: 0
                 },
                 {
                     name: "K",
-                    isActive: false
+                    timesChosen: 0
                 },
                 {
                     name: "A",
-                    isActive: false
+                    timesChosen: 0
                 }
 
             ]
@@ -77,12 +81,15 @@ export default {
     },
     methods: {
         chooseCard: function (card) {
-            if (!card.isActive && this.nbChosenCards <2) {
-                card.isActive = true;
+            if (card.timesChosen < 2 && this.nbChosenCards < 2) {
+                card.timesChosen++;
                 this.nbChosenCards++;
-            } else if (card.isActive) {
-                card.isActive = false;
+            } else if (card.timesChosen < 2 && this.nbChosenCards === 2) {
+                card.timesChosen--;
                 this.nbChosenCards--;
+            } else if (card.timesChosen === 2) {
+                card.timesChosen = 0;
+                this.nbChosenCards = 0;
             }
 
         }
@@ -91,9 +98,5 @@ export default {
 </script>
 
 <style scoped>
-.card {
-    width: 3em;
-    height: 3em;
-    justify-content: center;
-}
+
 </style>
