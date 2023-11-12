@@ -1,8 +1,8 @@
 <template>
 
     <div class="button-duo-horizontal">
-        <add-delete-player @player-added="addPlayer" @player-deleted="removePlayer"></add-delete-player>
-        <move-button @button-moved="moveButton"></move-button>
+        <add-delete-player @player-added="addPlayer" @player-deleted="removePlayer"/>
+        <move-button @button-moved="moveButton"/>
     </div>
     <br/>
     <div class="d-flex players">
@@ -10,9 +10,13 @@
                 v-for="player in nbPlayers-1"
                 :key="player"
                 :num-player="player+1"
-                :position="positionsData[nbPlayers][(player+buttonPosition)%nbPlayers]">
-
-        </OtherPlayer>
+                :position="positionsData[nbPlayers][(player+buttonPosition)%nbPlayers]"/>
+    </div>
+    <br/>
+    <div>
+        <main-player
+            :position="positionsData[nbPlayers][(buttonPosition)%nbPlayers]"
+            :username="username"/>
     </div>
 
 </template>
@@ -21,16 +25,19 @@
 import OtherPlayer from "@/components/OtherPlayer.vue";
 import AddDeletePlayer from "@/components/AddDeletePlayer.vue";
 import MoveButton from "@/components/MoveButton.vue";
+import MainPlayer from "@/components/MainPlayer.vue";
 
 export default {
     name: 'App',
     components: {
+        MainPlayer,
         MoveButton,
         AddDeletePlayer,
         OtherPlayer
     },
     data() {
         return {
+            username: "Username",
             nbPlayers: 6,
             positionsData: require('../src/assets/positions.json'),
             buttonPosition: 0

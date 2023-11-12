@@ -23,7 +23,7 @@ export default {
 
 <style scoped>
 .btn {
-    width: 10em;
+    width: 15em;
 }
 .btn-group {
     margin-right: 2em;

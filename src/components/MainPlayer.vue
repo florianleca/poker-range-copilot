@@ -2,8 +2,9 @@
     <div class="card">
         <div class="card-body d-flex flex-column align-items-center">
 
-            <span class="bi bi-person"></span>
-            <h6 class="card-title">Player {{ numPlayer }}</h6>
+            <span class="profile-pic bi bi-person-circle"></span>
+            <h6 class="card-title">Player 1</h6>
+            <h6 class="card-title badge bg-primary">{{username}}</h6>
             <span class="badge bg-secondary z-3">
                 {{ position }}
                 <span class="position-absolute top-25 start-100 text-warning translate-middle bi bi-circle-fill"
@@ -13,31 +14,28 @@
         </div>
 
     </div>
-
 </template>
 
 <script>
 export default {
-    name: "OtherPlayer.vue",
+    name: "MainPlayer",
     props: {
-        numPlayer: {
-            type: Number
+        username: {
+            type: String
         },
         position: {
             type: String
         }
     }
 }
-
 </script>
 
 <style scoped>
-
 .card {
-    width: 7em;
+    width: 14em;
 }
 
-.bi-person {
+.profile-pic {
     font-size: 3em
 }
 
@@ -45,4 +43,7 @@ export default {
     font-size: large;
 }
 
+.bg-primary {
+    font-size: 1em;
+}
 </style>
