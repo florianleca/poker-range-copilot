@@ -15,8 +15,8 @@
     <br/>
     <div>
         <main-player
-            :position="positionsData[nbPlayers][(buttonPosition)%nbPlayers]"
-            :username="username"/>
+                :position="positionsData[nbPlayers][(buttonPosition)%nbPlayers]"
+                :username="username"/>
     </div>
 
 </template>

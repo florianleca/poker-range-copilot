@@ -24,6 +24,7 @@ export default {
 .btn {
     width: 15em;
 }
+
 .btn-group {
     margin-right: 2em;
 }

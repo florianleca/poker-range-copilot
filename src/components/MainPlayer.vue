@@ -4,7 +4,7 @@
 
             <span class="profile-pic bi bi-person-circle"></span>
             <h6 class="card-title">Player 1</h6>
-            <h6 class="card-title badge bg-primary">{{username}}</h6>
+            <h6 class="card-title badge bg-primary">{{ username }}</h6>
             <span class="badge bg-secondary z-3">
                 {{ position }}
                 <span class="position-absolute top-25 start-100 text-warning translate-middle bi bi-circle-fill"
