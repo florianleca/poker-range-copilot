@@ -1,9 +1,13 @@
 <template>
 
-    <div class="button-duo-horizontal">
-        <options-buttons @player-added="addPlayer" @player-deleted="removePlayer" @button-moved="moveButton"/>
-    </div>
-    <br/>
+
+    <options-buttons
+        :min-players="minPlayers"
+        :max-players="maxPlayers"
+        :nb-players="nbPlayers"
+        @player-added-or-removed="addOrRemovePlayer"
+        @button-moved="moveButton"/>
+
     <div class="d-flex players">
         <other-player
                 v-for="player in nbPlayers-1"
@@ -11,7 +15,7 @@
                 :num-player="player+1"
                 :position="positionsData[nbPlayers][(player+buttonPosition)%nbPlayers]"/>
     </div>
-    <br/>
+
     <div>
         <main-player
                 :position="positionsData[nbPlayers][(buttonPosition)%nbPlayers]"
@@ -38,26 +42,23 @@ export default {
     data() {
         return {
             username: "Username",
+            minPlayers: 3,
+            maxPlayers: 6,
             nbPlayers: 6,
             positionsData: require('../src/assets/positions.json'),
             buttonPosition: 0
         }
     },
     methods: {
-        addPlayer: function () {
-            if (this.nbPlayers < 10) {
+        addOrRemovePlayer: function (incr) {
+            if (incr ===1 && this.nbPlayers < this.maxPlayers) {
                 this.nbPlayers++;
-            }
-        },
-        removePlayer: function () {
-            if (this.nbPlayers > 3) {
+            } else if (incr === -1 && this.nbPlayers > this.minPlayers) {
                 this.nbPlayers--;
             }
         },
         moveButton: function (incr) {
-            console.log(this.buttonPosition)
             this.buttonPosition = (this.buttonPosition - incr) % this.nbPlayers;
-            console.log(this.buttonPosition)
             if (this.buttonPosition === -1) {
                 this.buttonPosition = this.nbPlayers - 1;
             }
@@ -67,12 +68,5 @@ export default {
 </script>
 
 <style>
-.players {
-    width: 70em;
-}
 
-.button-duo-horizontal {
-    /*width: 70em;*/
-    margin-bottom: 1em;
-}
 </style>

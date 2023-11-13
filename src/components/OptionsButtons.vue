@@ -1,11 +1,19 @@
 <template>
     <div class="btn-group-vertical m-1" role="group">
 
-        <button id="add-player-btn" type="button" @click="addPlayer" class="btn btn-secondary">
+        <button id="add-player-btn"
+                type="button"
+                @click="addOrRemovePlayer(+1)"
+                class="btn btn-secondary"
+                v-bind:disabled="nbPlayers===maxPlayers">
             <span class="bi bi-person-plus"> Add Player</span>
         </button>
 
-        <button id="remove-player-btn" type="button" @click="removePlayer" class="btn btn-secondary">
+        <button id="remove-player-btn"
+                type="button"
+                @click="addOrRemovePlayer(-1)"
+                class="btn btn-secondary"
+                v-bind:disabled="nbPlayers===minPlayers">
             <span class="bi bi-person-dash"> Remove Player</span>
         </button>
 
@@ -24,12 +32,20 @@
 <script>
 export default {
     name: "OptionsButtons",
-    methods: {
-        addPlayer: function () {
-            this.$emit("player-added")
+    props: {
+        minPlayers: {
+            type: Number
         },
-        removePlayer: function () {
-            this.$emit("player-deleted")
+        maxPlayers: {
+            type: Number
+        },
+        nbPlayers: {
+            type: Number
+        }
+    },
+    methods: {
+        addOrRemovePlayer: function (incr) {
+            this.$emit("player-added-or-removed", incr)
         },
         moveButton: function (incr) {
             this.$emit("button-moved", incr)
