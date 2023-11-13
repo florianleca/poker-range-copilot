@@ -1,17 +1,30 @@
 <template>
-    <div class="btn-group-lg" role="group">
-        <button v-for="card in cards"
-                v-bind:class="{active: card.timesChosen>0, disabled: nbChosenCards===2 && card.timesChosen===0}"
-                :key="card.name"
-                type="button"
-                @click="chooseCard(card)"
-                class="btn btn-outline-primary position-relative m-1">
-            {{ card.name }}
-            <span class="position-absolute top-0 start-100 text-danger h2 translate-middle bi bi-check-all z-3"
-                  v-if="card.timesChosen===2"/>
-            <span class="position-absolute top-0 start-100 text-danger h2 translate-middle bi bi-check z-3"
-                  v-if="card.timesChosen===1"/>
-        </button>
+    <div class="d-flex flex-column">
+        <h5 class="h5">Starting Hand:</h5>
+
+        <div class="btn-group m-1" role="group">
+
+            <button v-for="card in cards"
+                    v-bind:class="{active: card.timesChosen>0, disabled: nbChosenCards===2 && card.timesChosen===0}"
+                    :key="card.name"
+                    type="button"
+                    @click="chooseCard(card)"
+                    class="btn btn-outline-primary position-relative my-1">
+                {{ card.name }}
+                <span class="position-absolute top-0 start-100 text-danger h2 translate-middle bi bi-check-all z-3"
+                      v-if="card.timesChosen===2"/>
+                <span class="position-absolute top-0 start-100 text-danger h2 translate-middle bi bi-check z-3"
+                      v-if="card.timesChosen===1"/>
+            </button>
+        </div>
+        <div class="btn-group m-1" role="group">
+            <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio1" autocomplete="off"
+            v-bind:checked="pocketPair">
+            <label class="btn btn-outline-dark" for="vbtn-radio1">Off-suit</label>
+            <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio2" autocomplete="off"
+                   v-bind:disabled="pocketPair">
+            <label class="btn btn-outline-dark" for="vbtn-radio2">Suited</label>
+        </div>
     </div>
 </template>
 
@@ -21,6 +34,7 @@ export default {
     name: "Cards",
     data() {
         return {
+            pocketPair: false,
             nbChosenCards: 0,
             cards: [
                 {
@@ -90,13 +104,20 @@ export default {
             } else if (card.timesChosen === 2) {
                 card.timesChosen = 0;
                 this.nbChosenCards = 0;
+                this.pocketPair = false;
+            }
+            if (card.timesChosen === 2) {
+                this.pocketPair = true;
             }
 
         }
     }
+
 }
 </script>
 
 <style scoped>
-
+.btn {
+    font-size: 20px
+}
 </style>

@@ -1,27 +1,29 @@
 <template>
 
+    <div class="d-flex">
 
-    <options-buttons
-        :min-players="minPlayers"
-        :max-players="maxPlayers"
-        :nb-players="nbPlayers"
-        @player-added-or-removed="addOrRemovePlayer"
-        @button-moved="moveButton"/>
-
-    <div class="d-flex players">
-        <other-player
-                v-for="player in nbPlayers-1"
-                :key="player"
-                :num-player="player+1"
-                :position="positionsData[nbPlayers][(player+buttonPosition)%nbPlayers]"/>
+        <options-buttons
+                :min-players="minPlayers"
+                :max-players="maxPlayers"
+                :nb-players="nbPlayers"
+                @player-added-or-removed="addOrRemovePlayer"
+                @button-moved="moveButton"/>
+        <div class="d-flex players">
+            <other-player
+                    v-for="player in nbPlayers-1"
+                    :key="player"
+                    :num-player="player+1"
+                    :position="positionsData[nbPlayers][(player+buttonPosition)%nbPlayers]"/>
+        </div>
     </div>
-
-    <div>
+    <br/>
+    <div class="d-flex">
         <main-player
                 :position="positionsData[nbPlayers][(buttonPosition)%nbPlayers]"
                 :username="username"/>
         <cards/>
     </div>
+
 
 </template>
 
@@ -51,7 +53,7 @@ export default {
     },
     methods: {
         addOrRemovePlayer: function (incr) {
-            if (incr ===1 && this.nbPlayers < this.maxPlayers) {
+            if (incr === 1 && this.nbPlayers < this.maxPlayers) {
                 this.nbPlayers++;
             } else if (incr === -1 && this.nbPlayers > this.minPlayers) {
                 this.nbPlayers--;
