@@ -1,12 +1,11 @@
 <template>
 
     <div class="button-duo-horizontal">
-        <add-delete-player @player-added="addPlayer" @player-deleted="removePlayer"/>
-        <move-button @button-moved="moveButton"/>
+        <options-buttons @player-added="addPlayer" @player-deleted="removePlayer" @button-moved="moveButton"/>
     </div>
     <br/>
     <div class="d-flex players">
-        <OtherPlayer
+        <other-player
                 v-for="player in nbPlayers-1"
                 :key="player"
                 :num-player="player+1"
@@ -24,18 +23,16 @@
 
 <script>
 import OtherPlayer from "@/components/OtherPlayer.vue";
-import AddDeletePlayer from "@/components/AddDeletePlayer.vue";
-import MoveButton from "@/components/MoveButton.vue";
 import MainPlayer from "@/components/MainPlayer.vue";
 import Cards from "@/components/Cards.vue";
+import OptionsButtons from "@/components/OptionsButtons.vue";
 
 export default {
     name: 'App',
     components: {
+        OptionsButtons,
         Cards,
         MainPlayer,
-        MoveButton,
-        AddDeletePlayer,
         OtherPlayer
     },
     data() {

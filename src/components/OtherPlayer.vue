@@ -35,6 +35,7 @@ export default {
 
 .card {
     width: 6em;
+    height: 9em;
 }
 
 .bi-person {

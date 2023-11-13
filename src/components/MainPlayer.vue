@@ -33,6 +33,7 @@ export default {
 <style scoped>
 .card {
     width: 14em;
+    height: 12em;
 }
 
 .profile-pic {
