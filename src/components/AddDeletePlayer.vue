@@ -1,9 +1,9 @@
 <template>
     <div class="btn-group" role="group">
-        <button type="button" @click="removePlayer" class="btn btn-outline-secondary">
+        <button id="remove-player-btn" type="button" @click="removePlayer" class="btn btn-outline-secondary">
             <span class="bi bi-person-dash"> Remove Player</span>
         </button>
-        <button type="button" @click="addPlayer" class="btn btn-outline-secondary">
+        <button id="add-player-btn" type="button" @click="addPlayer" class="btn btn-outline-secondary">
             <span class="bi bi-person-plus"> Add Player</span>
         </button>
     </div>
