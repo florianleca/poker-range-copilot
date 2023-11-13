@@ -3,7 +3,7 @@
         <div class="card-body d-flex flex-column align-items-center">
 
             <span class="bi bi-person"></span>
-            <h6 class="card-title">Player {{ numPlayer }}</h6>
+            <h6 class="card-title" style="font-size: 14px">Player {{ numPlayer }}</h6>
             <span class="badge bg-secondary z-3">
                 {{ position }}
                 <span class="position-absolute top-25 start-100 text-warning translate-middle bi bi-circle-fill"
@@ -34,7 +34,7 @@ export default {
 <style scoped>
 
 .card {
-    width: 7em;
+    width: 6em;
 }
 
 .bi-person {
