@@ -6,7 +6,7 @@
                 @click="addOrRemovePlayer(+1)"
                 class="btn btn-secondary"
                 v-bind:disabled="nbPlayers===maxPlayers">
-            <span class="bi bi-person-plus"> Add Player</span>
+            <span class="bi bi-person-plus"> | Add Player</span>
         </button>
 
         <button id="remove-player-btn"
@@ -14,16 +14,16 @@
                 @click="addOrRemovePlayer(-1)"
                 class="btn btn-secondary"
                 v-bind:disabled="nbPlayers===minPlayers">
-            <span class="bi bi-person-dash"> Remove Player</span>
+            <span class="bi bi-person-dash"> | Remove Player</span>
         </button>
 
 
         <button @click="moveButton(+1)" type="button" class="btn btn-secondary">
-            <span class="bi bi-arrow-right-square-fill"> Move Button CW</span>
+            <span class="bi bi-arrow-clockwise"> | Move Button CW</span>
         </button>
 
         <button @click="moveButton(-1)" type="button" class="btn btn-secondary">
-            <span class="bi bi-arrow-left-square-fill"> Move Button CCW</span>
+            <span class="bi bi-arrow-counterclockwise"> | Move Button CCW</span>
         </button>
 
     </div>
@@ -56,7 +56,11 @@ export default {
 
 <style scoped>
 .btn-group-vertical {
-    width: 14em;
+    width: 12em;
     height: 9em;
+}
+.btn {
+    text-align: left;
+
 }
 </style>

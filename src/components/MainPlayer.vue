@@ -7,7 +7,7 @@
             <h6 class="card-title badge bg-primary">{{ username }}</h6>
             <span class="badge bg-secondary z-3">
                 {{ position }}
-                <span class="position-absolute top-25 start-100 text-warning translate-middle bi bi-circle-fill"
+                <span class="position-absolute top-25 start-100 text-dark translate-middle bi bi-record-circle-fill"
                       v-if="position==='BTN'"/>
             </span>
 
@@ -32,7 +32,7 @@ export default {
 
 <style scoped>
 .card {
-    width: 14em;
+    width: 12em;
     height: 12em;
 }
 
@@ -40,7 +40,7 @@ export default {
     font-size: 3em
 }
 
-.bi-circle-fill {
+.bi-record-circle-fill {
     font-size: large;
 }
 

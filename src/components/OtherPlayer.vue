@@ -1,13 +1,13 @@
 <template>
-    <div :id="'player-' + numPlayer" class="card m-1">
+    <div :id="'player-' + numPlayer" class="card my-1 mx-3">
         <div class="card-body d-flex flex-column align-items-center">
 
             <span class="bi bi-person"></span>
             <h6 class="card-title" style="font-size: 14px">Player {{ numPlayer }}</h6>
             <span class="badge bg-secondary z-3">
                 {{ position }}
-                <span class="position-absolute top-25 start-100 text-warning translate-middle bi bi-circle-fill"
-                      v-if="position==='BTN'"/>
+                <span class="position-absolute start-100 text-dark translate-middle bi bi-record-circle-fill"
+                      v-if="position==='BTN'"></span>
             </span>
 
         </div>
@@ -42,7 +42,7 @@ export default {
     font-size: 3em
 }
 
-.bi-circle-fill {
+.bi-record-circle-fill {
     font-size: large;
 }
 

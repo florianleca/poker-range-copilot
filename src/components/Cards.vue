@@ -13,8 +13,8 @@
                 {{ card.name }}
                 <span class="position-absolute top-0 start-100 text-danger h2 translate-middle bi bi-check-all z-3"
                       v-if="card.timesChosen===2"/>
-                <span class="position-absolute top-0 start-100 text-danger h2 translate-middle bi bi-check z-3"
-                      v-if="card.timesChosen===1"/>
+<!--                <span class="position-absolute top-0 start-100 text-danger h2 translate-middle bi bi-check z-3"-->
+<!--                      v-if="card.timesChosen===1"/>-->
             </button>
         </div>
         <div class="btn-group m-1" role="group">
