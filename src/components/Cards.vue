@@ -1,8 +1,8 @@
 <template>
-    <div class="d-flex flex-column">
+    <div class="d-flex flex-column mx-3 justify-content-center">
         <h5 class="h5">Starting Hand:</h5>
 
-        <div class="btn-group m-1" role="group">
+        <div class="btn-group my-1" role="group">
 
             <button v-for="card in cards"
                     v-bind:class="{active: card.timesChosen>0, disabled: nbChosenCards===2 && card.timesChosen===0}"
@@ -17,7 +17,7 @@
 <!--                      v-if="card.timesChosen===1"/>-->
             </button>
         </div>
-        <div class="btn-group m-1" role="group">
+        <div class="btn-group my-1" role="group">
             <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio1" autocomplete="off"
             v-bind:checked="pocketPair">
             <label class="btn btn-outline-dark" for="vbtn-radio1">Off-suit</label>
