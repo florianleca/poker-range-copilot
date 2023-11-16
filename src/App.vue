@@ -23,6 +23,10 @@
                 :username="username"/>
         <cards/>
     </div>
+    <br>
+    <div>
+        <range-chart :position="positionsData[nbPlayers][(buttonPosition)%nbPlayers]" :rfi="rfi"></range-chart>
+    </div>
 
 
 </template>
@@ -32,10 +36,12 @@ import OtherPlayer from "@/components/OtherPlayer.vue";
 import MainPlayer from "@/components/MainPlayer.vue";
 import Cards from "@/components/Cards.vue";
 import OptionsButtons from "@/components/OptionsButtons.vue";
+import RangeChart from "@/components/RangeChart.vue";
 
 export default {
     name: 'App',
     components: {
+        RangeChart,
         OptionsButtons,
         Cards,
         MainPlayer,
@@ -48,7 +54,8 @@ export default {
             maxPlayers: 6,
             nbPlayers: 6,
             positionsData: require('../src/assets/positions.json'),
-            buttonPosition: 0
+            buttonPosition: 0,
+            rfi: true
         }
     },
     methods: {
