@@ -1,8 +1,8 @@
 <template>
   <div v-for="line in hands" :key="line">
-      <span class="range-hand-square"
+      <span class="badge"
             v-for="hand in line.join().split(' ')"
-            v-bind:class="{raise: rangesData[position]['RFI']['Raise'].includes(hand)}"
+            v-bind:class="[rangesData[position]['RFI']['Raise'].includes(hand) ? 'text-bg-danger' : 'text-bg-light']"
             :key="hand">
 
           {{hand}}
@@ -46,19 +46,13 @@ export default {
 </script>
 
 <style scoped>
-.range-hand-square {
+.badge {
     height: 30px;
     width: 30px;
+    font-size: 12px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     margin: 1px;
-    font-size: 14px;
-    border-radius: 5px;
-    border: 1px lightgray solid;
-}
-.raise {
-    background: indianred;
-    color: #f2f2f2;
 }
 </style>
