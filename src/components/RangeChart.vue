@@ -1,5 +1,5 @@
 <template>
-    <div v-for="line in hands" :key="line">
+  <div v-for="line in hands" :key="line">
       <span class="badge cards-hand"
             v-for="hand in line.join().split(' ')"
             v-bind:class="getMove(hand)"
@@ -7,11 +7,11 @@
 
           {{hand}}
       </span>
-    </div>
-    <div>
-        <span class="badge text-bg-primary legend mx-1">Raise</span>
-        <span class="badge text-bg-light legend mx-1">Fold</span>
-    </div>
+  </div>
+  <div>
+      <span class="badge text-bg-primary legend mx-1">Raise</span>
+      <span class="badge text-bg-light legend mx-1">Fold</span>
+  </div>
 </template>
 
 <script>
