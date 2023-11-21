@@ -1,17 +1,21 @@
 <template>
-  <div v-for="line in hands" :key="line">
-      <span class="badge"
+    <div v-for="line in hands" :key="line">
+      <span class="badge cards-hand"
             v-for="hand in line.join().split(' ')"
-            v-bind:class="[rangesData[position]['RFI']['Raise'].includes(hand) ? 'text-bg-danger' : 'text-bg-light']"
+            v-bind:class="getMove(hand)"
             :key="hand">
 
           {{hand}}
       </span>
-
-  </div>
+    </div>
+    <div>
+        <span class="badge text-bg-primary legend mx-1">Raise</span>
+        <span class="badge text-bg-light legend mx-1">Fold</span>
+    </div>
 </template>
 
 <script>
+
 export default {
     name: "RangeChart",
     props: {
@@ -41,12 +45,21 @@ export default {
             ],
             rangesData: require('/src/assets/ranges.json'),
         }
+    },
+    methods: {
+        getMove: function(hand) {
+            let data = this.rangesData[this.position]['RFI']
+            if (data['Raise'].includes(hand)) {
+                return 'text-bg-primary'
+            }
+            return 'text-bg-light'
+        }
     }
 }
 </script>
 
 <style scoped>
-.badge {
+.cards-hand {
     height: 30px;
     width: 30px;
     font-size: 12px;
@@ -54,5 +67,8 @@ export default {
     align-items: center;
     justify-content: center;
     margin: 1px;
+}
+.legend {
+    width: 60px;
 }
 </style>
