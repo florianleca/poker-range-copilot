@@ -1,15 +1,15 @@
 <template>
     <div class="container">
         <div class="row">
-            <div class="col">
-                <options-buttons
-                        :min-players="minPlayers"
-                        :max-players="maxPlayers"
-                        :nb-players="nbPlayers"
-                        @player-added-or-removed="addOrRemovePlayer"
-                        @button-moved="moveButton"/>
+            <div class="col-3">
+                    <options-buttons
+                            :min-players="minPlayers"
+                            :max-players="maxPlayers"
+                            :nb-players="nbPlayers"
+                            @player-added-or-removed="addOrRemovePlayer"
+                            @button-moved="moveButton"/>
             </div>
-            <div class="col">
+            <div class="col-9 d-flex">
                 <other-player
                         v-for="player in nbPlayers-1"
                         :key="player"
@@ -18,18 +18,21 @@
             </div>
         </div>
         <div class="row">
-            <div class="col">
+            <div class="col-3">
                 <main-player
                         :position="positionsData[nbPlayers][(buttonPosition)%nbPlayers]"
                         :username="username"/>
             </div>
-            <div class="col">
+            <div class="col-9">
                 <cards/>
             </div>
+
+
+        </div>
+        <div class="row">
             <div class="col">
                 <range-chart :position="positionsData[nbPlayers][(buttonPosition)%nbPlayers]" :rfi="rfi"/>
             </div>
-
         </div>
     </div>
 
