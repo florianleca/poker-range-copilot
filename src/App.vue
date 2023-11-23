@@ -1,39 +1,43 @@
 <template>
     <div class="container">
         <div class="row">
-            <div class="col-3">
-                    <options-buttons
+            <div class="col-8">
+                <div class="row">
+                    <div class="col-3">
+                        <options-buttons
                             :min-players="minPlayers"
                             :max-players="maxPlayers"
                             :nb-players="nbPlayers"
                             @player-added-or-removed="addOrRemovePlayer"
                             @button-moved="moveButton"/>
-            </div>
-            <div class="col-9 d-flex">
-                <other-player
-                        v-for="player in nbPlayers-1"
-                        :key="player"
-                        :num-player="player+1"
-                        :position="positionsData[nbPlayers][(player+buttonPosition)%nbPlayers]"/>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-3">
-                <main-player
-                        :position="positionsData[nbPlayers][(buttonPosition)%nbPlayers]"
-                        :username="username"/>
-            </div>
-            <div class="col-9">
-                <cards/>
-            </div>
+                    </div>
+                    <div class="col-9 d-flex">
+                        <other-player
+                            v-for="player in nbPlayers-1"
+                            :key="player"
+                            :num-player="player+1"
+                            :position="positionsData[nbPlayers][(player+buttonPosition)%nbPlayers]"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <main-player
+                            :position="positionsData[nbPlayers][(buttonPosition)%nbPlayers]"
+                            :username="username"/>
+                    </div>
+                    <div class="col-9">
+                        <cards/>
+                    </div>
+                </div>
 
-
-        </div>
-        <div class="row">
-            <div class="col">
+            </div>
+            <div class="col-4">
                 <range-chart :position="positionsData[nbPlayers][(buttonPosition)%nbPlayers]" :rfi="rfi"/>
+
             </div>
+
         </div>
+
     </div>
 
 
