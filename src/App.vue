@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-8">
                 <div class="row">
-                    <div class="col-3">
+                    <div class="col-md-3">
                         <options-buttons
                             :min-players="minPlayers"
                             :max-players="maxPlayers"
@@ -11,12 +11,15 @@
                             @player-added-or-removed="addOrRemovePlayer"
                             @button-moved="moveButton"/>
                     </div>
-                    <div class="col-9 d-flex">
-                        <other-player
-                            v-for="player in nbPlayers-1"
-                            :key="player"
-                            :num-player="player+1"
-                            :position="positionsData[nbPlayers][(player+buttonPosition)%nbPlayers]"/>
+                    <div class="col-md-9">
+                        <div class="d-flex justify-content-around">
+                            <other-player
+                                v-for="player in nbPlayers-1"
+                                :key="player"
+                                :num-player="player+1"
+                                :position="positionsData[nbPlayers][(player+buttonPosition)%nbPlayers]"/>
+                        </div>
+
                     </div>
                 </div>
                 <div class="row">
